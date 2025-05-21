@@ -24,7 +24,7 @@
                 {% if cards  %} <!--Checagem para garantir se existem cards no meu codigo-->
                 {% for fotografia in cards %} <!--Para verificar os parametros, entre em galeria/views.py-->
                 <li class="card">
-                    <a href="{% url 'imagem' %}">
+                    <a href="{% url 'imagem' fotografia.id %}">
                         <img class="card__imagem" src="{% static '/assets/imagens/galeria/'%}{{fotografia.foto}}"
                             alt="foto">
                     </a>
