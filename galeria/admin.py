@@ -9,4 +9,5 @@ class ListandoFotos(admin.ModelAdmin):
     list_filter = ("categoria",) #faz um filtro de listas em admin
     list_editable = ("publicada",)
     list_per_page = 10; #numero de itens por pagina, no caso 10 
+
 admin.site.register(Fotografia, ListandoFotos) #registar a classe no django admin
