@@ -103,7 +103,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
@@ -120,12 +119,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-#pra funcionar o STATICFILES, precisa criar uma pasta la em setup
+
 STATICFILES_DIRS = [ 
-     os.path.join(BASE_DIR,'setup/static')
+    os.path.join(BASE_DIR, 'setup/static')
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')#caminho absoluto
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # <- Pasta diferente e reservada
+#caminho absoluto
 
 #Media
 
