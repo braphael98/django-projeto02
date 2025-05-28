@@ -17,16 +17,19 @@
         </ul>
     </section>
     <section class="galeria">
-        
+
         <div class="cards">
             <h2 class="cards__titulo">Navegue pela galeria</h2>
             <ul class="cards__lista">
-                {% if cards  %} <!--Checagem para garantir se existem cards no meu codigo-->
+                {% if cards %} <!--Checagem para garantir se existem cards no meu codigo-->
                 {% for fotografia in cards %} <!--Para verificar os parametros, entre em galeria/views.py-->
                 <li class="card">
                     <a href="{% url 'imagem' fotografia.id %}">
-                        <img class="card__imagem" src="{% static '/assets/imagens/galeria/'%}{{fotografia.foto}}"
-                            alt="foto">
+                        {% if fotografia.foto == "" or fotografia.foto == null %}
+                        <img class="card__imagem" src="{% static 'assets/imagens/Banner(2).png' %}" alt="foto">
+                        {% else %}
+                        <img class="card__imagem" src="{{ fotografia.foto.url }}" alt="foto">
+                        {% endif %}
                     </a>
                     <span class="card__tag">Estrelas</span>
                     <div class="card__info">
@@ -39,9 +42,9 @@
                         </div>
                     </div>
                 </li>
-                 {% endfor %}
-                 {% else %}
-                 {% endif %}
+                {% endfor %}
+                {% else %}
+                {% endif %}
 
             </ul>
         </div>
